@@ -4,7 +4,8 @@ var gulp = require('./gulp')([
     'sass',
     'minify-css',
     'uglify',
-    'angular-templates'
+    'angular-templates',
+    'browserify'
 ]);
  
-gulp.task('default', ['clean-dist', 'clean-dist-tmp', 'sass', 'minify-css', 'uglify', 'angular-templates']);
+gulp.task('default', ['clean-dist', 'clean-dist-tmp', 'sass', 'minify-css', 'browserify', 'uglify', 'angular-templates']);
