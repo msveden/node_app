@@ -1,0 +1,13 @@
+.hide-when-small {
+    @include max($break-m) {
+        display: none;
+    }
+}
+
+@media print
+{    
+    .no-print, .no-print *
+    {
+        display: none !important;
+    }
+}
