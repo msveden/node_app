@@ -1,11 +1,27 @@
-var gulp = require('./gulp')([
-    'clean-dist',
-    'clean-dist-tmp',
-    'sass',
-    'minify-css',
-    'uglify',
-    'angular-templates',
-    'browserify'
+var gulp = require('./gulp')(),
+    watch = require('gulp-watch'),
+    batch = require('gulp-batch');
+    
+gulp.task('default', [
+    'sass', 
+    'minify-css', 
+    'babel', 
+    'browserify',
+    'uglify', 
+    'angular-templates'
 ]);
- 
-gulp.task('default', ['clean-dist', 'clean-dist-tmp', 'sass', 'minify-css', 'browserify', 'uglify', 'angular-templates']);
+
+gulp.task('libs', [
+    'browserify-libs'
+]);
+
+gulp.task('all', [
+    'default', 
+    'libs'
+]);
+
+gulp.task('watch', function () {
+    watch('app_client/**/*', batch(function (events, done) {
+        gulp.start('default', done);
+    }));
+});

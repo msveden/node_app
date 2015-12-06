@@ -23,10 +23,11 @@ function init() {
 function initExpress() {
 
     app.set('port', (process.env[installDirName + '_PORT'] || 5000));
-    
+
+    app.use(express.static(path.join(__dirname, 'bower_components')));    
+    app.use(express.static(path.join(__dirname, 'dist_libs')));
     app.use(express.static(path.join(__dirname, 'dist')));
     app.use(express.static(path.join(__dirname, 'public')));
-    app.use(express.static(path.join(__dirname, 'bower_components')));
     
     // view engine setup
     app.set('views', path.join(__dirname, 'app/views'));        

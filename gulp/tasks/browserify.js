@@ -2,11 +2,13 @@ var gulp = require('gulp'),
     browserify = require('browserify'),
     source = require('vinyl-source-stream');
  
+var mainFile = 'dist_tmp/main.js';
+
 module.exports = function() {
-    return browserify('app_client/js/main.js')
+    return browserify(mainFile)
+        .external('react')
+        .external('react-dom')
         .bundle()
-        //Pass desired output filename to vinyl-source-stream
         .pipe(source('bundle.js'))
-        // Start piping stream to tasks!
         .pipe(gulp.dest('dist_tmp'));
 };

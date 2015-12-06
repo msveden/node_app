@@ -29,4 +29,5 @@ node_modules
 bower_components
 dist
 dist_tmp
+dist_libs
 
