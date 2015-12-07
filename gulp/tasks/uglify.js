@@ -6,7 +6,7 @@ var gulp = require('gulp'),
     config = require('../config');
 
 module.exports = function(){
-    return gulp.src(['dist_tmp/*.js'])
+    return gulp.src(['dist_tmp/bundle.js'])
         .pipe(gulpif(config.sourceMaps, sourcemaps.init({loadMaps: true})))
         .pipe(concat('script.js'))
         .pipe(gulp.dest('dist'))

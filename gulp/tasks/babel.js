@@ -2,7 +2,7 @@ var gulp = require('gulp'),
     babel = require('gulp-babel');
  
 module.exports = function() {
-    return gulp.src('app_client/jsx/main.jsx')
+    return gulp.src('app_client/jsx/*.jsx')
         .pipe(babel({
             presets: ['react']
         }))
