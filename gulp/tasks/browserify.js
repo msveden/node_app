@@ -13,6 +13,7 @@ module.exports = function() {
         .external('react')
         .external('react-dom')
         .external('jquery')
+        .external('marked')
         .bundle()
         .pipe(source('bundle.js'))
         .pipe(gulp.dest('dist_tmp'));

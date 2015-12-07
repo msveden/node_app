@@ -7,6 +7,7 @@ module.exports = function() {
         .require('react')
         .require('react-dom')
         .require('jquery')
+        .require('marked')
         .bundle()
         .pipe(source('libs.js'))
         .pipe(gulp.dest('dist_libs'));
